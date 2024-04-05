@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kb-automate
+  labels:
+    app: kb-automate
+  namespace: namespace-workflow-1712296832898
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kb-automate
+  template:
+    metadata:
+      labels:
+        app: kb-automate
+    spec:
+      containers:
+        - name: kb-automate
+          image: acrworkflow1712296832898.azurecr.io/image-workflow-1712296832898:latest
+          ports:
+            - containerPort: 5000
